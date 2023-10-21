@@ -59,6 +59,11 @@ const KabinetHMTT = () => {
 					</div>
 				</div>
 			</div>
+			{/* 
+			<div className="visimisi-base">
+				<p className="visimisi-headling">Visi & Misi</p>
+				<div className="visimisi-box1"></div>
+			</div> */}
 		</div>
 	);
 };

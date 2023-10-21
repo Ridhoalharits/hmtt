@@ -11,7 +11,7 @@ const Welcome = () => {
 			<div className="welcome">
 				<p className="welcome-text">PERTAMA, TERBAIK,</p>
 				<p className="welcome-text">SALAM TELEKOMUNIKASI</p>
-				<p className="aboutus-text">
+				<p className="welcome-detail-text">
 					Welcome! This is an official website of Himpunan Mahasiswa Teknik
 					Telekomunikasi
 				</p>
