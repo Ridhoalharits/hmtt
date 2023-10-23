@@ -32,7 +32,6 @@ const OurLab = () => {
 						peminatan dimana tiap peminatannya terdiri dari beberapa
 						laboratorium.
 					</p>
-					<h1 className="text-white">Hellow World</h1>
 				</div>
 				<div className="lab-box-row">
 					{laboratoryList.map((laboratoryLists) => (

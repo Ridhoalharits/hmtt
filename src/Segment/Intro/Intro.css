@@ -69,6 +69,10 @@
 	text-decoration: none;
 }
 
+a:hover {
+	text-decoration: underline;
+}
+
 .text-bold {
 	font-family: "Jakarta-Bold";
 }

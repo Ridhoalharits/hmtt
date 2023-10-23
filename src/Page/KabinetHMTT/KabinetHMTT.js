@@ -78,13 +78,55 @@ const KabinetHMTT = () => {
 				<div className="visimisi-box2">
 					<p className="visimisi-subheading-black">Visi & Misi</p>
 					<p className="visi-headline-black">Misi</p>
-					<div className="misi-kebawah">
-						<div className="misi-list">
-							<p>1</p>
-							<p>
-								Merangkul seluruh elemen S1 Teknik Telekomunikasi dengan
-								memfokuskan kepada keterbukaan satu sama lain
-							</p>
+
+					<div className="misi-base">
+						<div className="misi-kebawah">
+							<div className="misi-list">
+								<p className="misi-number">1</p>
+								<p className="misi-bodycopy">
+									Merangkul seluruh elemen S1 Teknik Telekomunikasi dengan
+									memfokuskan kepada keterbukaan satu sama lain
+								</p>
+							</div>
+							<div className="misi-list">
+								<p className="misi-number">2</p>
+								<p className="misi-bodycopy">
+									Mewadahi minat dan bakat mahasiswa S1 Teknik Telekomunikasi
+									dalam pengembangan prestasi optimal dari tiap individu maupun
+									kelompok.
+								</p>
+							</div>
+							<div className="misi-list">
+								<p className="misi-number">3</p>
+								<p className="misi-bodycopy">
+									Meningkatkan komunikasi internal maupun eksternal HMTT demi
+									mendapatkan hasil yang positif.
+								</p>
+							</div>
+						</div>
+						<div className="misi-kebawah">
+							<div className="misi-list">
+								<p className="misi-number">4</p>
+								<p className="misi-bodycopy">
+									Merangkul seluruh elemen S1 Teknik Telekomunikasi dengan
+									memfokuskan kepada keterbukaan satu sama lain
+								</p>
+							</div>
+							<div className="misi-list">
+								<p className="misi-number">5</p>
+								<p className="misi-bodycopy">
+									Mewadahi minat dan bakat mahasiswa S1 Teknik Telekomunikasi
+									dalam pengembangan prestasi optimal dari tiap individu maupun
+									kelompok.
+								</p>
+							</div>
+							<div className="misi-list">
+								<p className="misi-number">6</p>
+								<p className="misi-bodycopy">
+									Meningkatkan komunikasi internal maupun eksternal HMTT demi
+									mendapatkan hasil yang positif.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>

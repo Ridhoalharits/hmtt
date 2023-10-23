@@ -27,6 +27,10 @@
 	background: transparent;
 }
 
+a {
+	text-decoration: underline;
+}
+
 .nav-list {
 	margin-right: 32px;
 	font-family: "Jakarta-Regular";

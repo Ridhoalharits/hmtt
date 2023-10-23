@@ -169,6 +169,7 @@
 	font-size: 128px;
 	line-height: normal;
 	margin: 0;
+	margin-bottom: 32px;
 }
 
 .visimisi-subheading-black {
@@ -183,9 +184,36 @@
 .misi-list {
 	background-color: white;
 	border-radius: 10px;
+	width: 90%;
+	flex-direction: row;
+	display: flex;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 32px;
+}
+
+.misi-number {
+	background: linear-gradient(180deg, #0781c4 0%, #000 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: "Jakarta-Bold";
+	font-size: 64px;
+	margin: 0px;
+	margin-right: 16px;
+}
+
+.misi-bodycopy {
+	font-family: "Jakarta-Regular";
+	color: #000;
+	font-size: 18px;
+	text-align: justify;
+	display: flex;
+}
+
+.misi-base {
 	display: flex;
 	flex-direction: row;
-	width: fit-content;
-	padding-left: 8px;
-	padding-right: 8px;
 }
