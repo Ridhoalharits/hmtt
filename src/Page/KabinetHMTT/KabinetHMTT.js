@@ -4,7 +4,7 @@ import "./KabinetHMTT.css";
 
 const KabinetHMTT = () => {
 	return (
-		<div className="base">
+		<div>
 			<Header />
 			<div className="headingKabinet-base">
 				<p className="heading-kabinet-text">Kabinet HMTT 2023</p>
@@ -51,19 +51,44 @@ const KabinetHMTT = () => {
 						<img
 							className="kabinet-img-placeholder"
 							src="./img/fotoinkab.jpeg"
+							alt="foto_inti_kabinet"
 						/>
 						<img
 							className="kabinet-img-placeholder"
 							src="./img/fotoanggota.jpeg"
+							alt="foto_anggota"
 						/>
 					</div>
 				</div>
 			</div>
-			{/* 
+
 			<div className="visimisi-base">
 				<p className="visimisi-headling">Visi & Misi</p>
-				<div className="visimisi-box1"></div>
-			</div> */}
+				<div className="visimisi-box1">
+					<p className="visimisi-subheading">Visi & Misi</p>
+					<p className="visi-headline">VISI</p>
+					<p className="visi-body">
+						Terwujudnya HMTT sebagai wadah pengembangan potensi mahasiswa S1
+						Teknik Telekomunikasi yang bersifat inovatif dan kreatif, serta
+						menjalin hubungan baik dengan seluruh elemen, baik elemen internal
+						maupun eksternal, guna mendapatkan hasil agar dapat membantu
+						pengembangan keilmuan di bidang telekomunikasi.
+					</p>
+				</div>
+				<div className="visimisi-box2">
+					<p className="visimisi-subheading-black">Visi & Misi</p>
+					<p className="visi-headline-black">Misi</p>
+					<div className="misi-kebawah">
+						<div className="misi-list">
+							<p>1</p>
+							<p>
+								Merangkul seluruh elemen S1 Teknik Telekomunikasi dengan
+								memfokuskan kepada keterbukaan satu sama lain
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
