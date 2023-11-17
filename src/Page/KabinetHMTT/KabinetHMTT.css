@@ -98,6 +98,7 @@
 	flex-direction: column; /* Stack content in a column */
 	justify-content: center;
 	align-items: center;
+	padding-bottom: 64px;
 }
 
 .visimisi-headling {
@@ -216,4 +217,31 @@
 .misi-base {
 	display: flex;
 	flex-direction: row;
+}
+
+.statistik-base {
+	background-color: black;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	margin-bottom: 32px;
+}
+
+.nomor {
+	font-family: "Jakarta-Bold";
+	font-size: 128px;
+	color: white;
+	margin: 0;
+}
+
+.jenis {
+	font-family: "Jakarta-Regular";
+	font-size: 24px;
+	color: white;
+	margin: 0;
+}
+
+.kebawah {
+	margin: 0px 184px 0px 184px;
 }

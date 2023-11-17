@@ -13,7 +13,9 @@ const Header = () => {
 					<a className="nav-list" href="/kabinethmtt">
 						About Us
 					</a>
-					<a className="nav-list">Laboratory</a>
+					<a className="nav-list" href="/laboratory">
+						Laboratory
+					</a>
 					<a className="nav-list">Event</a>
 					<a className="nav-list-bold">Shop</a>
 				</div>

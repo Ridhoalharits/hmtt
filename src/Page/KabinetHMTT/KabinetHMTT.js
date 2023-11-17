@@ -131,6 +131,23 @@ const KabinetHMTT = () => {
 					</div>
 				</div>
 			</div>
+
+			<div className="statistik-base">
+				<div className="kebawah">
+					<p className="nomor">245</p>
+					<p className="jenis">Anggota</p>
+				</div>
+
+				<div className="kebawah">
+					<p className="nomor">6</p>
+					<p className="jenis">Kementrian</p>
+				</div>
+
+				<div className="kebawah">
+					<p className="nomor">13</p>
+					<p className="jenis">Departemen</p>
+				</div>
+			</div>
 		</div>
 	);
 };
