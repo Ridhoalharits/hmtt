@@ -10,6 +10,7 @@
 
 .Parent {
 	margin: 0px;
+	padding: 0;
 }
 
 .Card {
@@ -67,6 +68,7 @@
 	color: black;
 	font-size: 19px;
 	line-height: 1.25;
+	text-decoration: none;
 }
 
 .Desc .Date {
@@ -78,3 +80,28 @@
 .Desc .Location {
 	color: yellow;
 }
+
+.text-button {
+	text-decoration: none;
+}
+
+.text-button:hover {
+	text-decoration: none;
+}
+
+.text-button2 {
+	text-decoration: none;
+	color: white;
+}
+
+.text-button2:hover {
+	text-decoration: none;
+	color: white;
+}
+
+/* a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+} */

@@ -5,7 +5,10 @@ const Header = () => {
 	return (
 		<div className="navbar">
 			<nav className="nav-base">
-				<img className="navIcon" src="./icon/logohmtt.png" alt="logohmtt" />
+				<a href="/">
+					<img className="navIcon" src="./icon/logohmtt.png" alt="logohmtt" />
+				</a>
+
 				<div className="base-2">
 					<a className="nav-list" href="/">
 						Home

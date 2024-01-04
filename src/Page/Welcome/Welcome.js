@@ -16,7 +16,11 @@ const Welcome = () => {
 					Welcome! This is an official website of Himpunan Mahasiswa Teknik
 					Telekomunikasi
 				</p>
-				<button className="aboutus-button">Get To Know Us</button>
+				<button className="aboutus-button">
+					<a href="/kabinethmtt" className="text-button2">
+						Get To Know Us
+					</a>
+				</button>
 			</div>
 			<Intro />
 			<OurLab />
