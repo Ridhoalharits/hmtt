@@ -3,6 +3,7 @@ import "./Welcome.css";
 import Header from "../../Component/Header/Header";
 import Intro from "../../Segment/Intro/Intro";
 import OurLab from "../../Segment/OurLab/OurLab";
+import ArticleTile from "../../Component/ArticleTile/ArticleTile";
 
 const Welcome = () => {
 	return (
@@ -15,10 +16,13 @@ const Welcome = () => {
 					Welcome! This is an official website of Himpunan Mahasiswa Teknik
 					Telekomunikasi
 				</p>
-				<button className="aboutus-button">Contact Us</button>
+				<button className="aboutus-button">Get To Know Us</button>
 			</div>
 			<Intro />
 			<OurLab />
+			<div>
+				<ArticleTile />
+			</div>
 		</div>
 	);
 };

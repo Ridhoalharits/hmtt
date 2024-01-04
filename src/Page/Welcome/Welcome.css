@@ -66,3 +66,28 @@ body {
 	width: 500px;
 	height: 500px;
 }
+
+.article-base {
+	background-color: white;
+}
+
+.btowtext-h1 {
+	background: linear-gradient(270deg, black, #009bd8);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: "Jakarta-Bold";
+	font-size: 64px;
+	margin: 0;
+}
+.btowtext-h2 {
+	background: linear-gradient(270deg, black, #009bd8);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: "Jakarta-Bold";
+	font-size: 32px;
+	padding-top: 32px;
+}
+
+.article-head {
+	text-align: center;
+}

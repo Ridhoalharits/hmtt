@@ -17,6 +17,9 @@ const Header = () => {
 						Laboratory
 					</a>
 					<a className="nav-list">Event</a>
+					<a className="nav-list" href="/article">
+						Article
+					</a>
 					<a className="nav-list-bold">Shop</a>
 				</div>
 			</nav>
