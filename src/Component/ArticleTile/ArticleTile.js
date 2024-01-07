@@ -12,7 +12,7 @@ function ArticleTile(props) {
 
 				<div className="Desc">
 					<p className="Category">Update</p>
-					<a className="text-button" href="/">
+					<a className="text-button" href="/news">
 						<h1 className="Headline">
 							Kura kura ketabrak fortuner tapi malah ditinggal nikah
 						</h1>

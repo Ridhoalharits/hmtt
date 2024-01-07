@@ -7,6 +7,9 @@ const Article = () => {
 	return (
 		<div>
 			<Header />
+
+			<h2 className="article-header">Lastest News</h2>
+
 			<div className="highlight-parent">
 				<img
 					className="placeholder"

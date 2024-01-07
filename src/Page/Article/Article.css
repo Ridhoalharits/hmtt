@@ -91,3 +91,12 @@
 	padding-right: 64px;
 	padding-left: 64px;
 }
+
+.article-header {
+	background: linear-gradient(270deg, white, #009bd8);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 64px;
+	font-family: "Jakarta-Bold";
+	margin-left: 154px;
+}
