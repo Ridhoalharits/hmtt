@@ -7,7 +7,7 @@ const Intro = () => {
 			<div className="row-container">
 				<div>
 					<p className="heading">About Us</p>
-					<p className="bodycopy">
+					<p className="bodycopy-landing">
 						<span className="text-bold-aboutus">
 							Himpunan Mahasiswa Teknik Telekomunikasi
 						</span>{" "}
