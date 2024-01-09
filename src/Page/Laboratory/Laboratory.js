@@ -3,8 +3,12 @@ import Header from "../../Component/Header/Header";
 import LabBox from "../../Component/LabBox/LabBox";
 import LabBox2 from "../../Component/LabBox2/LabBox2";
 import "./Laboratory.css";
+import { useEffect } from "react";
 
 const Laboratory = () => {
+	useEffect(() => {
+		document.title = "Laboratorium"; // Change the window title here
+	}, []);
 	const laboratoryList = [
 		{
 			LabName: "Jaringan",

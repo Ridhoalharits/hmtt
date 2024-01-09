@@ -4,8 +4,11 @@ import Header from "../../Component/Header/Header";
 import Intro from "../../Segment/Intro/Intro";
 import OurLab from "../../Segment/OurLab/OurLab";
 import ArticleTile from "../../Component/ArticleTile/ArticleTile";
-
+import { useEffect } from "react";
 const Welcome = () => {
+	useEffect(() => {
+		document.title = "Himpunan Mahasiswa Teknik Telekomunikasi"; // Change the window title here
+	}, []);
 	return (
 		<div className="base">
 			<Header />

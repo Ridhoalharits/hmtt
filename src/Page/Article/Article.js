@@ -5,6 +5,9 @@ import ArticleTile from "../../Component/ArticleTile/ArticleTile";
 import { useState, useEffect } from "react";
 
 const Article = () => {
+	useEffect(() => {
+		document.title = "Newsroom"; // Change the window title here
+	}, []);
 	const [newsData, setNewsData] = useState(null);
 	function formatDate(dateString) {
 		const options = { year: "numeric", month: "long", day: "numeric" };

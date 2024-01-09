@@ -1,8 +1,12 @@
 import React from "react";
 import Header from "../../Component/Header/Header";
 import "./KabinetHMTT.css";
+import { useEffect } from "react";
 
 const KabinetHMTT = () => {
+	useEffect(() => {
+		document.title = "Tentang Kami"; // Change the window title here
+	}, []);
 	return (
 		<div>
 			<Header />
