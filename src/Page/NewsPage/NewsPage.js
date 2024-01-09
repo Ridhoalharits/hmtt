@@ -1,8 +1,12 @@
 import React from "react";
 import "./NewsPage.css";
 import Header from "../../Component/Header/Header";
+import { useParams } from "react-router-dom";
 
 const NewsPage = () => {
+	const { id } = useParams();
+	console.log(id);
+
 	return (
 		<div>
 			<Header />

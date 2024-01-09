@@ -2,8 +2,38 @@ import React from "react";
 import Header from "../../Component/Header/Header";
 import "./Article.css";
 import ArticleTile from "../../Component/ArticleTile/ArticleTile";
+import { useState, useEffect } from "react";
 
 const Article = () => {
+	const [newsData, setNewsData] = useState(null);
+	function formatDate(dateString) {
+		const options = { year: "numeric", month: "long", day: "numeric" };
+		return new Date(dateString).toLocaleDateString("en-US", options);
+	}
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch(
+					"http://localhost:1337/api/newsrooms?populate=*"
+				);
+				const data = await response.json();
+				const formattedData = data.data.map((item) => ({
+					...item,
+					attributes: {
+						...item.attributes,
+						publishedAt: formatDate(item.attributes.publishedAt),
+					},
+				}));
+				setNewsData(formattedData);
+				console.log(formattedData); // Assuming your API endpoint is an array with one item
+			} catch (error) {
+				console.error("Error fetching data:", error);
+			}
+		};
+
+		fetchData();
+	}, []);
 	return (
 		<div>
 			<Header />
@@ -31,12 +61,19 @@ const Article = () => {
 			</div>
 			<div className="container">
 				<div className="article-tile-container">
-					<ArticleTile />
-					<ArticleTile />
-					<ArticleTile />
-					<ArticleTile />
-					<ArticleTile />
-					<ArticleTile />
+					{newsData &&
+						newsData.map((newsItem) => (
+							<ArticleTile
+								key={newsItem.id}
+								headline={newsItem.attributes.Headline}
+								date={newsItem.attributes.publishedAt}
+								photo={
+									"http://localhost:1337" +
+									newsItem.attributes.image.data.attributes.formats.large.url
+								}
+								id={newsItem.id}
+							/>
+						))}
 				</div>
 			</div>
 		</div>
