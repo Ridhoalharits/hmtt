@@ -13,9 +13,12 @@ function ArticleTile(props) {
 
 				<div className="Desc">
 					<p className="Category">Update</p>
-					<a className="text-button" href="/news">
+					<Link className="no-underline" to={`/article/${props.id}`}>
+					<a className="text-button">
 						<h1 className="Headline">{props.headline}</h1>
 					</a>
+					</Link>
+					
 
 					<p className="Date">{props.date}</p>
 				</div>

@@ -16,7 +16,7 @@ function App() {
 					<Route path="/kabinethmtt" element={<KabinetHMTT />}></Route>
 					<Route path="/laboratory" element={<Laboratory />}></Route>
 					<Route path="/article" element={<Article />}></Route>
-					<Route path="/news" element={<NewsPage />}></Route>
+					<Route path="/article/:id" element={<NewsPage />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

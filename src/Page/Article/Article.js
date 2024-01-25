@@ -10,8 +10,8 @@ const Article = () => {
 	}, []);
 	const [newsData, setNewsData] = useState(null);
 	function formatDate(dateString) {
-		const options = { year: "numeric", month: "long", day: "numeric" };
-		return new Date(dateString).toLocaleDateString("en-US", options);
+		const options = { day: "numeric", month: "long", year: "numeric" };
+    	return new Date(dateString).toLocaleDateString("id-ID", options);
 	}
 
 	useEffect(() => {
@@ -72,7 +72,7 @@ const Article = () => {
 								date={newsItem.attributes.publishedAt}
 								photo={
 									"http://localhost:1337" +
-									newsItem.attributes.image.data.attributes.formats.large.url
+									newsItem.attributes.thumbnail.data.attributes.formats.large.url
 								}
 								id={newsItem.id}
 							/>
