@@ -13,7 +13,7 @@ const Article = () => {
 		const options = { day: "numeric", month: "long", year: "numeric" };
     	return new Date(dateString).toLocaleDateString("id-ID", options);
 	}
-
+	const [Heading, setHeading] = useState(null);
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -21,15 +21,24 @@ const Article = () => {
 					"http://localhost:1337/api/newsrooms?populate=*"
 				);
 				const data = await response.json();
-				const formattedData = data.data.map((item) => ({
+				// const formattedData = data.data.map((item) => ({
+				// 	...item,
+				// 	attributes: {
+				// 		...item.attributes,
+				// 		publishedAt: formatDate(item.attributes.publishedAt),
+				// 	},
+				// }));
+				const sortedNews = data.data.sort((b, a) => new Date(a.attributes.publishedAt)-new Date(b.attributes.publishedAt));
+				const formattedData = sortedNews.map((item) => ({
 					...item,
 					attributes: {
 						...item.attributes,
 						publishedAt: formatDate(item.attributes.publishedAt),
 					},
 				}));
+				console.log(sortedNews);
 				setNewsData(formattedData);
-				console.log(formattedData); // Assuming your API endpoint is an array with one item
+				// console.log(formattedData); // Assuming your API endpoint is an array with one item
 			} catch (error) {
 				console.error("Error fetching data:", error);
 			}
@@ -37,6 +46,27 @@ const Article = () => {
 
 		fetchData();
 	}, []);
+
+	useEffect(() => {
+		const fetchDataHeadline = async () => {
+			try {
+				const response = await fetch(
+					"http://localhost:1337/api/headline/?populate=*"
+				);
+				const dataHead = await response.json();
+				setHeading(dataHead.data.attributes);
+				console.log(dataHead.data.attributes); // Assuming your API endpoint is an array with one item
+			} catch (error) {
+				console.error("Error fetching data:", error);
+			}
+		};
+
+		fetchDataHeadline();
+	}, []);
+
+
+
+
 	return (
 		<div>
 			<Header />
@@ -53,12 +83,10 @@ const Article = () => {
 				<div className="text-info-headline">
 					<div class="category">Update</div>
 					<div class="headline">
-						Kura Kura ditabrak mobil tapi malah ditinggal nikah : Lo yang mulai
-						kenapa lo yang galak?
+						{Heading&&Heading.heading}
 					</div>
 					<div class="text-headline">
-						Apple News+ subscribers now have access to the best premium daily
-						sports journalism for fans
+					{Heading&&Heading.desc}
 					</div>
 				</div>
 			</div>

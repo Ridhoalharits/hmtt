@@ -3,6 +3,9 @@ import "./NewsPage.css";
 import Header from "../../Component/Header/Header";
 import { useParams } from "react-router-dom";
 import { useEffect,useState } from "react";
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+
+// Content should come from your Strapi API
 
 const NewsPage = () => {
 	const { id : newsId } = useParams();
@@ -11,6 +14,7 @@ const NewsPage = () => {
 	const [newsData, setNewsData] = useState(null);
 	const [newsImage,setnewsImage] = useState(null);
 	const [newsDate,setNewsDate] = useState(null);
+	const [paragraph] = useState(null)
 	console.log("link foto = "+newsImage);
 	function formatDate(dateString) {
 		const options = { day: "numeric", month: "long", year: "numeric" };
@@ -25,9 +29,13 @@ const NewsPage = () => {
 				);
 				const data = await response.json();
 				const tanggalfix = formatDate(data.data.attributes.publishedAt);
+
 				setNewsDate(tanggalfix)
 				setNewsData(data.data.attributes);
-				setnewsImage(data.data.attributes.thumbnail.data.attributes.formats.large.url)
+				setnewsImage(data.data.attributes.thumbnail.data.attributes.formats.large.url);
+				const paragraphs = data.data.attributes.bodycopy
+				console.log("paragraf = "+paragraphs)
+
 				console.log(data.data.attributes.thumbnail.data.attributes.formats.large.url); // Assuming your API endpoint is an array with one item
 			} catch (error) {
 				console.error("Error fetching data:", error);
@@ -36,6 +44,15 @@ const NewsPage = () => {
 		
 		fetchData();
 	}, []);
+
+	// const paragraphs = data.data[0].attributes.bodycopy.split('\n');
+	const renderParagraphs = (text) => {
+		console.log(text)
+		// return text.split('\n').map((paragraph, index) => (
+		//   <p key={index}>{paragraph}</p>
+		// ));
+	  };
+
 
 	
 	return (
@@ -60,9 +77,17 @@ const NewsPage = () => {
 				</div>
 
 				<div className="component-bodycopy">
-					<p className="bodycopy">
+				{newsData && newsData.bodycopy.map((paragraph, index) => (
+            <p className="bodycopy" key={index}>{paragraph.children[0].text}</p>
+          ))}
+					{/* <div className="bodycopy">
 					{newsData&&newsData.bodycopy}
-					</p>
+					</div> */}
+{/* 
+					{renderParagraphs(newsData&&newsData.bodycopy)} */}
+					{/* <p className="bodycopy">
+					
+					</p> */}
 
 					{/* <p className="bodycopy">
 						Apple Arcade is set for another incredible year of uninterrupted

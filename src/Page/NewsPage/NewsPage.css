@@ -46,9 +46,10 @@
 .picture-image {
 	display: inline-block;
 	width: 100%;
-	height: auto;
+	height: 500px;
 	border-radius: 16px;
 	margin-top: 32px;
+	object-fit: cover;
 }
 
 .component-content-img {
