@@ -71,7 +71,7 @@ const Article = () => {
 		<div>
 			<Header />
 
-			<h2 className="article-header">Lastest News</h2>
+			<h2 className="article-header">Lastest News today</h2>
 
 			<div className="highlight-parent">
 				<img
@@ -81,7 +81,7 @@ const Article = () => {
 				/>
 
 				<div className="text-info-headline">
-					<div class="category">Update</div>
+					<div class="category">Update Now</div>
 					<div class="headline">
 						{Heading&&Heading.heading}
 					</div>
