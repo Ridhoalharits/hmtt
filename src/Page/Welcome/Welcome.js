@@ -28,7 +28,6 @@ const Welcome = () => {
 			<Intro />
 			<OurLab />
 			<div>
-				<ArticleTile />
 			</div>
 		</div>
 	);
