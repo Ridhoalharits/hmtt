@@ -4,6 +4,9 @@ import "./Article.css";
 import ArticleTile from "../../Component/ArticleTile/ArticleTile";
 import { useState, useEffect } from "react";
 import { getNews } from "../NewsPage/action";
+import { truncateText } from "../../utils/truncate";
+import { redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Article = () => {
   useEffect(() => {
@@ -36,17 +39,35 @@ const Article = () => {
 
       <h2 className="article-header">Latest News today</h2>
       <div className="highlight-container">
-        <div className="highlight-parent">
-          <img className="placeholder" alt="foto orang" src={news[0].img_url} />
-          <div className="text-info-headline">
-            <div>
-              <div class="category">Update Now</div>
-              <div class="headline">{news[0] && news[0].title}</div>
-              <div class="text-headline">{news[0] && news[0].bodycopy}</div>
+        {news[0] && (
+          <div className="highlight-parent">
+            {news[0] && (
+              <img
+                className="placeholder"
+                alt="foto orang"
+                src={news[0].img_url}
+              />
+            )}
+            <div className="text-info-headline">
+              <div>
+                <div class="category">Update</div>
+                <Link
+                  className="no-underline"
+                  to={`/article/${news[0].news_id}`}
+                >
+                  <div class="headline">{news[0] && news[0].title}</div>
+                </Link>
+                <div class="text-headline">
+                  {" "}
+                  {news[0] && truncateText(news[0].bodycopy, 200)}
+                </div>
+              </div>
+              <p className="category">
+                {news[0] && formatDate(news[0].createAt)}
+              </p>
             </div>
-            <p className="category">{formatDate(news[0].createAt)}</p>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="container">
