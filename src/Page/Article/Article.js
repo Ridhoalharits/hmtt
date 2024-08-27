@@ -34,21 +34,21 @@ const Article = () => {
     <div>
       <Header />
 
-      <h2 className="article-header">Lastest News today</h2>
-
-      <div className="highlight-parent">
-        <img
-          className="placeholder"
-          alt="foto orang"
-          src="./img/dummy_article.JPG"
-        />
-
-        <div className="text-info-headline">
-          <div class="category">Update Now</div>
-          <div class="headline">{Heading && Heading.heading}</div>
-          <div class="text-headline">{Heading && Heading.desc}</div>
+      <h2 className="article-header">Latest News today</h2>
+      <div className="highlight-container">
+        <div className="highlight-parent">
+          <img className="placeholder" alt="foto orang" src={news[0].img_url} />
+          <div className="text-info-headline">
+            <div>
+              <div class="category">Update Now</div>
+              <div class="headline">{news[0] && news[0].title}</div>
+              <div class="text-headline">{news[0] && news[0].bodycopy}</div>
+            </div>
+            <p className="category">{formatDate(news[0].createAt)}</p>
+          </div>
         </div>
       </div>
+
       <div className="container">
         <div className="article-tile-container">
           {news &&

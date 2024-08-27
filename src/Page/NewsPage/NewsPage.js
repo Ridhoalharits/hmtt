@@ -39,17 +39,16 @@ const NewsPage = () => {
     <div>
       <Header />
       <div className="news-header">
-        <div className="category-component">
+        <div className="category-component"></div>
+
+        <div className="component-content-img">
           <div className="component-content">
             <p className="category">Update</p>
             <p className="date">{formatedTime(newsData[0].createAt)}</p>
           </div>
-        </div>
-
-        <div className="component-content">
-          <h1 className="news-headline">{newsData[0].title}</h1>
-        </div>
-        <div className="component-content-img">
+          <div className="component-content">
+            <h1 className="news-headline">{newsData[0].title}</h1>
+          </div>
           <img className="picture-image" src={newsData[0].img_url} alt="News" />
         </div>
 

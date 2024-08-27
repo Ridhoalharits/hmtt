@@ -6,7 +6,11 @@ export async function getNews() {
   );
 
   try {
-    let query = supabase.from("article").select("*").eq("isPublished", "true");
+    let query = supabase
+      .from("article")
+      .select("*")
+      .eq("isPublished", "true")
+      .order("createAt", { ascending: false });
     const { data, error } = await query;
     if (error) {
       throw error;

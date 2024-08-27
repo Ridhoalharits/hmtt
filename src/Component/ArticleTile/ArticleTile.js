@@ -8,7 +8,6 @@ function ArticleTile(props) {
       <div className="Card">
         <div className="PhotoHolder">
           <img src={props.photo} />
-          {/* <img src="./img/dummy_article.JPG" /> */}
         </div>
 
         <div className="Desc">
