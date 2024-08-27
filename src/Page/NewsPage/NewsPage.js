@@ -1,107 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./NewsPage.css";
 import Header from "../../Component/Header/Header";
 import { useParams } from "react-router-dom";
-import { useEffect,useState } from "react";
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
-
-// Content should come from your Strapi API
+import { fullNews } from "./action";
+import { formatedTime } from "../../utils/dateformat";
+import { paragraphs } from "../../utils/paragraph";
 
 const NewsPage = () => {
-	const { id : newsId } = useParams();
-	console.log(newsId)
-	
-	const [newsData, setNewsData] = useState(null);
-	const [newsImage,setnewsImage] = useState(null);
-	const [newsDate,setNewsDate] = useState(null);
-	const [paragraph] = useState(null)
-	console.log("link foto = "+newsImage);
-	function formatDate(dateString) {
-		const options = { day: "numeric", month: "long", year: "numeric" };
-    	return new Date(dateString).toLocaleDateString("id-ID", options);
-	}
+  const { id: newsId } = useParams();
+  const [newsData, setNewsData] = useState(null); // Initialize with null to handle loading state
+  const [loading, setLoading] = useState(true); // Loading state to show loading message
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetch(
-					`http://localhost:1337/api/newsrooms/${newsId}?populate=*`
-				);
-				const data = await response.json();
-				const tanggalfix = formatDate(data.data.attributes.publishedAt);
+  const fetchdata = async () => {
+    try {
+      const data = await fullNews(newsId);
+      console.log("Fetched data:", data); // Log the fetched data for debugging
+      setNewsData(data);
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    } finally {
+      setLoading(false); // Set loading to false once the fetch is complete
+    }
+  };
 
-				setNewsDate(tanggalfix)
-				setNewsData(data.data.attributes);
-				setnewsImage(data.data.attributes.thumbnail.data.attributes.formats.large.url);
-				const paragraphs = data.data.attributes.bodycopy
-				console.log("paragraf = "+paragraphs)
+  useEffect(() => {
+    fetchdata();
+  }, [newsId]); // Add newsId to dependency array
 
-				console.log(data.data.attributes.thumbnail.data.attributes.formats.large.url); // Assuming your API endpoint is an array with one item
-			} catch (error) {
-				console.error("Error fetching data:", error);
-			}
-		};
-		
-		fetchData();
-	}, []);
+  if (loading) {
+    return <div>Loading...</div>; // Display loading message while data is being fetched
+  }
 
-	// const paragraphs = data.data[0].attributes.bodycopy.split('\n');
-	const renderParagraphs = (text) => {
-		console.log(text)
-		// return text.split('\n').map((paragraph, index) => (
-		//   <p key={index}>{paragraph}</p>
-		// ));
-	  };
+  if (!newsData) {
+    return <div>No data found.</div>; // Handle case where no data is found
+  }
 
+  return (
+    <div>
+      <Header />
+      <div className="news-header">
+        <div className="category-component">
+          <div className="component-content">
+            <p className="category">Update</p>
+            <p className="date">{formatedTime(newsData[0].createAt)}</p>
+          </div>
+        </div>
 
-	
-	return (
-		<div>
-			<Header />
-			<div className="news-header">
-				<div className="category-component">
-					<div className="component-content">
-						<p className="category">Update</p>
-						<p className="date">{newsDate}</p>
-					</div>
-				</div>
+        <div className="component-content">
+          <h1 className="news-headline">{newsData[0].title}</h1>
+        </div>
+        <div className="component-content-img">
+          <img className="picture-image" src={newsData[0].img_url} alt="News" />
+        </div>
 
-				<div className="component-content">
-					<h1 className="news-headline">
-						{newsData&&newsData.Headline}
-				
-					</h1>
-				</div>
-				<div className="component-content-img">
-					<img className="picture-image" src={`http://localhost:1337${newsImage&&newsImage}`}/>
-				</div>
+        <div className="component-bodycopy">
+          {/* <p className="bodycopy">{newsData[0].bodycopy}</p> */}
 
-				<div className="component-bodycopy">
-				{newsData && newsData.bodycopy.map((paragraph, index) => (
-            <p className="bodycopy" key={index}>{paragraph.children[0].text}</p>
+          {paragraphs(newsData[0].bodycopy).map((paragraph, index) => (
+            <p key={index} className="bodycopy">
+              {paragraph}
+            </p>
           ))}
-					{/* <div className="bodycopy">
-					{newsData&&newsData.bodycopy}
-					</div> */}
-{/* 
-					{renderParagraphs(newsData&&newsData.bodycopy)} */}
-					{/* <p className="bodycopy">
-					
-					</p> */}
-
-					{/* <p className="bodycopy">
-						Apple Arcade is set for another incredible year of uninterrupted
-						play, starting with three new titles and more than 20 major updates
-						to popular games launching this month. Today players can embark on
-						an epic, wholesome, and nostalgic journey in Tamagotchi Adventure
-						Kingdom; get swept up in Cornsweeper, a relaxing and whimsical
-						reimagining of the beloved logic puzzle game Minesweeper; and go all
-						in on Blackjack by MobilityWare+.
-					</p> */}
-				</div>
-			</div>
-		</div>
-	);
+          <div></div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default NewsPage;
