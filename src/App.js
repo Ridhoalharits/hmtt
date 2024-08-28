@@ -8,6 +8,7 @@ import Article from "./Page/Article/Article";
 import NewsPage from "./Page/NewsPage/NewsPage";
 import Dashboard from "./Page/Admin/Dashboard";
 import Ebook from "./Page/Ebook/Ebook";
+import LabDetail from "./Page/LabDetail/LabDetail";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/article/:id" element={<NewsPage />}></Route>
           <Route path="/admin" element={<Dashboard />}></Route>
           <Route path="/ebook" element={<Ebook />}></Route>
+          <Route path="/labdetail" element={<LabDetail />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
