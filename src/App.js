@@ -22,7 +22,7 @@ function App() {
           <Route path="/article/:id" element={<NewsPage />}></Route>
           <Route path="/admin" element={<Dashboard />}></Route>
           <Route path="/ebook" element={<Ebook />}></Route>
-          <Route path="/labdetail" element={<LabDetail />}></Route>
+          <Route path="/labdetail/:id" element={<LabDetail />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
