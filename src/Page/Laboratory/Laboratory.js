@@ -59,15 +59,19 @@ const Laboratory = () => {
               </p>
             </div>
             <div className="lab-box-row">
-              {lab.map((laboratoryLists) => (
-                <LabBox
-                  key={laboratoryLists.lab_id}
-                  namaLab={laboratoryLists.name}
-                  labdesc={truncateText(laboratoryLists.about, 100)}
-                  iconURL={laboratoryLists.logo_url}
-                  id={laboratoryLists.lab_id}
-                />
-              ))}
+              {lab
+                .filter(
+                  (laboratoryLists) => laboratoryLists.labType === "network"
+                )
+                .map((laboratoryLists) => (
+                  <LabBox
+                    key={laboratoryLists.lab_id}
+                    namaLab={laboratoryLists.name}
+                    labdesc={truncateText(laboratoryLists.about, 100)}
+                    iconURL={laboratoryLists.logo_url}
+                    id={laboratoryLists.lab_id}
+                  />
+                ))}
             </div>
           </div>
 
@@ -84,14 +88,20 @@ const Laboratory = () => {
               </p>
             </div>
             <div className="lab-box-row">
-              {laboratoryList.map((laboratoryLists) => (
-                <LabBox2
-                  key={laboratoryLists.lab_id}
-                  namaLab={laboratoryLists.LabName}
-                  labdesc={laboratoryLists.desc}
-                  iconURL={laboratoryLists.icon}
-                />
-              ))}
+              {lab
+                .filter(
+                  (laboratoryLists) =>
+                    laboratoryLists.labType === "transmission"
+                )
+                .map((laboratoryLists) => (
+                  <LabBox2
+                    key={laboratoryLists.lab_id}
+                    namaLab={laboratoryLists.name}
+                    labdesc={truncateText(laboratoryLists.about, 100)}
+                    iconURL={laboratoryLists.logo_url}
+                    id={laboratoryLists.lab_id}
+                  />
+                ))}
             </div>
           </div>
 
@@ -108,14 +118,19 @@ const Laboratory = () => {
               </p>
             </div>
             <div className="lab-box-row">
-              {laboratoryList.map((laboratoryLists) => (
-                <LabBox
-                  key={laboratoryLists.id}
-                  namaLab={laboratoryLists.LabName}
-                  labdesc={laboratoryLists.desc}
-                  iconURL={laboratoryLists.icon}
-                />
-              ))}
+              {lab
+                .filter(
+                  (laboratoryLists) => laboratoryLists.labType === "signal"
+                )
+                .map((laboratoryLists) => (
+                  <LabBox
+                    key={laboratoryLists.lab_id}
+                    namaLab={laboratoryLists.name}
+                    labdesc={truncateText(laboratoryLists.about, 100)}
+                    iconURL={laboratoryLists.logo_url}
+                    id={laboratoryLists.lab_id}
+                  />
+                ))}
             </div>
           </div>
 
